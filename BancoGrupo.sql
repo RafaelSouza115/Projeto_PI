@@ -73,55 +73,71 @@ CREATE TABLE Alerta (
 
 
 
-INSERT INTO empresa VALUES 
-	(default, 'Homocentro Cruz Azul', '38657298000180', 'Rua Alexandre Fleming', '13424-052', '1425534589', 'hemocruzazul@hotmail.com.br', 'cruz2356', '2023-04-12', 'Joelma da Conceição Cruz'),
-	(default, 'Hospital de Taipas', '57054046000100', 'Rua Rabat', '06654-726', '1526184864', 'hosptaipas@hotmail.com.br', 'cruz2356', '2025-08-10', 'Paulo Henrique Carino Luques'),
-	(default, 'Homocentro RP', '18317618000480', 'Rua Tasman', '09750-360', '1230118142', 'hemocentrorp@gmail.com.br', 'senha300', '2020-08-21', 'Levi Borner Bilé'),
-    (default, 'Hospital Santa Tech', '23417618000481', 'Avenida Paulista', '06815-400', '1432168192', 'hopsst@.com.br', 'hosps127', '2022-09-08', 'José Antônio Figueiredo'),
-	(default, 'Accenture', '18317618000145', 'Alameda das Glicínias', '13342-021', '1727266666', 'eletronicos.marques@geradornv.com.br', 'senha123', '2018-06-01', 'Fellipe Tavares Annunziato');
+INSERT INTO Empresa 
+(nome_empresa, cnpj_empresa, cep_empresa, logradouro_empresa, numero_empresa, bairro_empresa, cidade_empresa, estado_empresa, ufEmpresa_empresa, dt_cadastro_empresa, nome_responsavel_empresa, email_responsavel_empresa) 
+VALUES
+('Homocentro Cruz Azul', '38657298000180', '13424-052', 'Rua Alexandre Fleming', '1425', 'Centro', 'Campinas', 'São Paulo', 'SP', '2023-04-12', 'Joelma da Conceição Cruz', 'hemocruzazul@hotmail.com.br'),
+('Hospital de Taipas', '57054046000100', '06654-726', 'Rua Rabat', '1526', 'Taipas', 'São Paulo', 'São Paulo', 'SP', '2025-08-10', 'Paulo Henrique Carino Luques', 'hosptaipas@hotmail.com.br'),
+('Homocentro RP', '18317618000480', '09750-360', 'Rua Tasman', '1230', 'Centro', 'Ribeirão Preto', 'São Paulo', 'SP', '2020-08-21', 'Levi Borner Bilé', 'hemocentrorp@gmail.com'),
+('Hospital Santa Tech', '23417618000481', '06815-400', 'Avenida Paulista', '1432', 'Bela Vista', 'São Paulo', 'São Paulo', 'SP', '2022-09-08', 'José Antônio Figueiredo', 'hopsst@.com.br'),
+('Accenture', '18317618000145', '13342-021', 'Alameda das Glicínias', '1727', 'Jardins', 'São Paulo', 'São Paulo', 'SP', '2018-06-01', 'Fellipe Tavares Annunziato', 'eletronicos.marques@geradornv.com.br');
 
-INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, permissao_usuario)  VALUES  
-('Roger', 'rogerelias@gmail.com',' #elias1234', 'medico', 'Admin'),
+INSERT INTO Usuario 
+(nome_usuario, email_usuario, senha_usuario, cargo_usuario, permissao_usuario) 
+VALUES  
+('Roger', 'rogerelias@gmail.com','#elias1234', 'Médico', 'Admin'),
 ('Victor', 'victorgui@gmail.com','#guimaraes', 'Enfermeiro', 'Visualizador'),
-('Maria', 'maria157s@gmail.com','ma2234', 'Medica', 'Operador'),
-('Robson', 'robson177@gmail.com','robb@', 'Medico', 'Admin'); 
+('Maria', 'maria157s@gmail.com','ma2234', 'Médica', 'Operador'),
+('Robson', 'robson177@gmail.com','robb@', 'Médico', 'Admin');
 
-INSERT INTO Doador (nome_doador, cpf_doador, tipo_sanguineo_doador, dt_nascimento_doador, contato_doador) VALUES 
+INSERT INTO Doador 
+(nome_doador, cpf_doador, tipo_sanguineo_doador, dt_nascimento_doador, telefone_doador) 
+VALUES 
 ('Victor', '02543688910', 'AB-', '2001-03-28', '11-95922-0305'),
-('Alexandre', '12765933604', 'A+', '1994-03-01', '21-964785612'),
-('Gabriel', '65434578911', 'B+', '1983-05-17', '16-989419836'),
+('Alexandre', '12765933604', 'A+', '1994-03-01', '21-96478-5612'),
+('Gabriel', '65434578911', 'B+', '1983-05-17', '16-98941-9836'),
 ('Giovanna', '47825697705', 'A+', '1990-06-08', '75-96564-8223');
 
-INSERT INTO Alerta(id_arduino, gravidade_alerta,Temperatura,statusGerador_alerta,dt_hora_alerta,status_manutenção)VALUES
-(1,'Alta','08', 'Suspenso', '2025-04-09', 'Resolvido'),
-(2,'Baixa','01', 'Suspenso','2025-07-27', 'Resolvido'),
-(3,'Alta', '18', 'Acionado', '2025-06-13','Resolvido'),
-(4,'Alta','21', 'Acionado', '2025-09-04', 'Acionado');
+INSERT INTO Alerta 
+(id_arduino, gravidade_alerta, dt_hora_alerta, status_manutenção) 
+VALUES
+(1,'Alta','2025-04-09', 'Resolvido'),
+(2,'Baixa','2025-07-27', 'Resolvido'),
+(3,'Alta','2025-06-13','Resolvido'),
+(4,'Alta','2025-09-04', 'Acionado');
 
-INSERT INTO Arduino (local_instalado_arduino, stats_arduino, id_empresa, temperatura_arduino, dt_hora_arduino) VALUES
-('sala 01, segundo andar','Ativo', 2, 5,'2025-10-02'),
-('sala 113, setimo andar','Manutenção', 2, 6,'2024-03-23'),
-('sala marte','Inativo', 10, 4,'2023-04-17'),
-('sala venus','Manutenção', 10, 3,'2025-04-16'),
-('sala Paulista','Ativo', 7, 4,'2024-07-18'),
-('sala Masp','Inativo', 7, 7,'2025-08-15');
+INSERT INTO Arduino 
+(id_empresa, camara_instalacao_arduino, stats_arduino, temperatura_arduino, dt_hora_arduino) 
+VALUES
+(2,'sala 01, segundo andar','Ativo', 5,'2025-10-02'),
+(2,'sala 113, sétimo andar','Manutenção', 6,'2024-03-23'),
+(1,'sala marte','Inativo', 4,'2023-04-17'),
+(1,'sala venus','Manutenção', 3,'2025-04-16'),
+(3,'sala Paulista','Ativo', 4,'2024-07-18'),
+(3,'sala Masp','Inativo', 7,'2025-08-15');
 
-INSERT INTO Bolsa_Sangue(doador_bolsa, tipo_sanguineo_bolsa, validade_bolsa, dt_doacao_bolsa, quantidade_ml_bolsa, stats_bolsa) VALUES
-('1', 'A+', '2026-05-20', '2025-04-02', 200, 'Armazenada'),
-('2', 'A+', '2026-08-20', '2025-08-26', 500, 'Transfundida'),
-('3', 'A-', '2026-04-20', '2025-10-15', 500, 'Vencida'),
-('4', 'AB+', '2026-07-20', '2025-11-20', 200, 'Armazenada'),
-('5', 'O-', '2026-06-20', '2025-09-25', 250, 'Transfundida');
+INSERT INTO Bolsa_Sangue
+(tipo_sanguineo_bolsa, validade_bolsa, dt_doacao_bolsa, quantidade_ml_bolsa, stats_bolsa) 
+VALUES
+('A+', '2026-05-20', '2025-04-02', 200, 'Armazenada'),
+('A+', '2026-08-20', '2025-08-26', 500, 'Transfundida'),
+('A-', '2026-04-20', '2025-10-15', 500, 'Vencida'),
+('AB+', '2026-07-20', '2025-11-20', 200, 'Armazenada'),
+('O-', '2026-06-20', '2025-09-25', 250, 'Transfundida');
 
 -- SELECT NA TABELA EMPRESA USANDO 'AS'
 SELECT
-	id_empresa  AS 'Id Empresa',
-    nome_empresa AS 'Nome Empresa',
-    cnpj_empresa AS 'CNPJ',
-    endereco_empresa AS 'Endereço',
-    CEP_empresa AS 'CEP',
-    email_empresa AS 'E-mail',
-    senha_empresa AS 'Senha',
-    dt_cadastro_empresa AS 'Data Cadastro Empresa',
-    responsavel_empresa AS 'Responsável'
-FROM empresa;
+    id_empresa              AS 'Id Empresa',
+    nome_empresa            AS 'Nome da Empresa',
+    cnpj_empresa            AS 'CNPJ',
+    cep_empresa             AS 'CEP',
+    logradouro_empresa      AS 'Logradouro',
+    numero_empresa          AS 'Número',
+    bairro_empresa          AS 'Bairro',
+    cidade_empresa          AS 'Cidade',
+    estado_empresa          AS 'Estado',
+    ufEmpresa_empresa       AS 'UF',
+    dt_cadastro_empresa     AS 'Data de Cadastro',
+    nome_responsavel_empresa AS 'Nome do Responsável',
+    email_responsavel_empresa AS 'E-mail do Responsável'
+FROM Empresa;
