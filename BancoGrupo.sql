@@ -5,11 +5,13 @@ CREATE TABLE Empresa (
     id_empresa INT AUTO_INCREMENT PRIMARY KEY,
     nome_empresa VARCHAR(150) NOT NULL,
     cnpj_empresa CHAR(14) NOT NULL,
-    endereco_empresa VARCHAR(200) NOT NULL,
-    CEP_empresa VARCHAR(200) NOT NULL,
-    contato_empresa VARCHAR(15) NOT NULL,
-    email_empresa VARCHAR(50) UNIQUE NOT NULL,
-    senha_empresa VARCHAR(30) NOT NULL,
+    cep_empresa VARCHAR(15),
+	logradouro_empresa VARCHAR(50),
+	numero_empresa VARCHAR(20),
+	bairro_empresa VARCHAR(30),
+	cidade_empresa VARCHAR(50),
+	estado_empresa VARCHAR(20),
+	ufEmpresa_empresa CHAR(2)
     dt_cadastro_empresa DATETIME,
     responsavel_empresa VARCHAR(30),
 	CONSTRAINT chk_email_empresa CHECK (email_empresa LIKE '%@%')
