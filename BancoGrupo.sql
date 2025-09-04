@@ -99,3 +99,9 @@ INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, 
 ('Victor', 'victorgui@gmail.com','#guimaraes', 'Enfermeiro', 'Visualizador'),
 ('Maria', 'maria157s@gmail.com','ma2234', 'Medica', 'Operador'),
 ('Robson', 'robson177@gmail.com','robb@', 'Medico', 'Admin'); 
+
+INSERT INTO Doador (nome_doador, cpf_doador, tipo_sanguineo_doador, dt_nascimento_doador, contato_doador) VALUES 
+('Victor', '02543688910', 'AB-', '2001-03-28', '11-95922-0305'),
+('Alexandre', '12765933604', 'A+', '1994-03-01', '21-964785612'),
+('Gabriel', '65434578911', 'B+', '1983-05-17', '16-989419836'),
+('Giovanna', '47825697705', 'A+', '1990-06-08', '75-96564-8223');
