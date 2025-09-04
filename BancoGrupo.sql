@@ -71,3 +71,25 @@ CREATE TABLE Alerta (
     CONSTRAINT chk_Gerador_alerta CHECK(status_Gerador_alerta IN('Acionado','Suspenso'))
 );
 
+
+
+INSERT INTO empresa VALUES 
+	(default, 'Homocentro Cruz Azul', '38657298000180', 'Rua Alexandre Fleming', '13424-052', '1425534589', 'hemocruzazul@hotmail.com.br', 'cruz2356', '2023-04-12', 'Joelma da Conceição Cruz'),
+	(default, 'Hospital de Taipas', '57054046000100', 'Rua Rabat', '06654-726', '1526184864', 'hosptaipas@hotmail.com.br', 'cruz2356', '2025-08-10', 'Paulo Henrique Carino Luques'),
+	(default, 'Homocentro RP', '18317618000480', 'Rua Tasman', '09750-360', '1230118142', 'hemocentrorp@gmail.com.br', 'senha300', '2020-08-21', 'Levi Borner Bilé'),
+    (default, 'Hospital Santa Tech', '23417618000481', 'Avenida Paulista', '06815-400', '1432168192', 'hopsst@.com.br', 'hosps127', '2022-09-08', 'José Antônio Figueiredo'),
+	(default, 'Accenture', '18317618000145', 'Alameda das Glicínias', '13342-021', '1727266666', 'eletronicos.marques@geradornv.com.br', 'senha123', '2018-06-01', 'Fellipe Tavares Annunziato');
+
+
+-- SELECT NA TABELA EMPRESA USANDO 'AS'
+SELECT
+	id_empresa  AS 'Id Empresa',
+    nome AS 'Nome Empresa',
+    cnpj AS 'CNPJ',
+    endereco AS 'Endereço',
+    CEP AS 'CEP',
+    email AS 'E-mail',
+    senha AS 'Senha',
+    dt_cadastro AS 'Data Cadastro Empresa',
+    responsavel AS 'Responsável'
+FROM empresa;
