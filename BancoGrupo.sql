@@ -21,13 +21,14 @@ CREATE TABLE Usuario (
     email_usuario VARCHAR(100) UNIQUE NOT NULL,
     senha_usuario VARCHAR(50) NOT NULL,
     cargo_usuario VARCHAR(50) NOT NULL,
-    permissao_usuario VARCHAR(20) NOT NULL
-    CONSTRAINT chk_permissao_usuario CHECK (permissao_usuario IN ('Admin', 'Operador', 'Visualizador'))
+    permissao_usuario VARCHAR(20) NOT NULL,
+    CONSTRAINT chk_permissao_usuario CHECK (permissao_usuario IN ('Admin', 'Operador', 'Visualizador')),
 	CONSTRAINT chk_email_usuario CHECK (email_usuario LIKE '%@%')
 );
 
 CREATE TABLE Arduino (
     id_arduino INT AUTO_INCREMENT PRIMARY KEY,
+	id_empresa varchar (20) NOT NULL,
     local_instalado_arduino VARCHAR(100) NOT NULL,
     stats_arduino VARCHAR(20) NOT NULL,
     temperatura_arduino DECIMAL(5,2) NOT NULL,
@@ -111,10 +112,17 @@ INSERT INTO Alerta(gravidade_alerta,Temperatura,status_Gerador_alerta,dt_hora_al
 ('Alta', '18', 'Acionado', '2025-06-13','Resolvido'),
 ('Alta','21', 'Acionado', '2025-09-04', 'Manutenção');
 
-insert into Arduino (local_instalado_arduino, stats_arduino, id_empresa, temperatura_arduino, dt_hora_arduino) values
+INSERT INTO Arduino (local_instalado_arduino, stats_arduino, id_empresa, temperatura_arduino, dt_hora_arduino) VALUES
 ('sala 01, segundo andar','Ativo', 2, 5,'2025-10-02'),
 ('sala 113, setimo andar','Manutenção', 2, 6,'2024-03-23'),
 ('sala marte','Inativo', 10, 4,'2023-04-17'),
 ('sala venus','Manutenção', 10, 3,'2025-04-16'),
 ('sala Paulista','Ativo', 7, 4,'2024-07-18'),
 ('sala Masp','Inativo', 7, 7,'2025-08-15');
+
+INSERT INTO Bolsa_Sangue(doador_bolsa, tipo_sanguineo_bolsa, validade_bolsa, dt_doacao_bolsa, quantidade_ml_bolsa, stats_bolsa) VALUES
+('1', 'A+', '2026-05-20', '2025-04-02', 200, 'Armazenada'),
+('2', 'A+', '2026-08-20', '2025-08-26', 500, 'Transfundida'),
+('3', 'A-', '2026-04-20', '2025-10-15', 500, 'Vencida'),
+('4', 'AB+', '2026-07-20', '2025-11-20', 200, 'Armazenada'),
+('5', 'O-', '2026-06-20', '2025-09-25', 250, 'Transfundida');
