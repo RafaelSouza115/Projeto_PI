@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <img src="IMG/ICEBLOOD LOGO.png" width="300" alt="logo">
+    <h1><b>Simulador de Perdas<b></h1><br>
+    <div>
+    Insira a quantidade de Bolsas Perdidas: <input id="ipt_bolsa">
+    <button onclick="simular()">Simule aqui</button>
+    <div id="div_msg"></div>
+</body>
+<script>
+    function simular() {
+    var bolsa = Number(ipt_bolsa.value);
+    var soma = bolsa * 585;
+    var porcentagem = (soma / 3300000) * 100;
+    var result = (soma/3300000) * (15);
+    var convertido= (soma)*result.toFixed(2);
+    var final = convertido/2;
+    div_msg.innerHTML = "A quantidade de bolsas perdidas é de: " +"<u>"+ bolsa+"</u>"; 
+    div_msg.innerHTML += "<div>O que seria o prejuizo de: R$ -" +"<u>"+"<span style='color: red;'>"+ soma.toFixed(2)+"</span>"+"</u>";
+    div_msg.innerHTML += "<div> Em questão de porcentagem do total de 3.3milhões, seria de: " +"<u>"+ porcentagem.toFixed(2) + "%"+"</u>";
+    div_msg.innerHTML += "<div> e perdas por conta de conservação: "+"<u>"+"<span style='color: red;'>"+result.toFixed(2)+"%"+"</span>"+"</u>"; 
+    div_msg.innerHTML += "<div> Que em R$, seria de: R$" +"<b>"+"<u>"+ convertido.toFixed(2)+"</u>"+"</b>";
+    div_msg.innerHTML += "<div> Com nosso produto, teria economizado: "+"<u>"+ final.toFixed(2)+"</u>"; 
+    div_msg.innerHTML += "<h5><span style = 'color: red;'><u>[Essa conta é com base nas bolsas arrecadadas no ano de 2024]</u></span></h5>";
+    }
+</script>
+
+</html>
