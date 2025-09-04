@@ -11,7 +11,7 @@ CREATE TABLE Empresa (
 	bairro_empresa VARCHAR(30),
 	cidade_empresa VARCHAR(50),
 	estado_empresa VARCHAR(20),
-	ufEmpresa_empresa CHAR(2)
+	ufEmpresa_empresa CHAR(2),
     dt_cadastro_empresa DATETIME,
     responsavel_empresa VARCHAR(30),
 	CONSTRAINT chk_email_empresa CHECK (email_empresa LIKE '%@%')
