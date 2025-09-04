@@ -63,11 +63,11 @@ CREATE TABLE Alerta (
     id_arduino INT NOT NULL, 
 	Temperatura DECIMAL(2.0),
     statusGerador_alerta VARCHAR (30),
-    gravidadeAlerta_alerta VARCHAR (30),
+    gravidade_alerta VARCHAR (30),
     dt_hora_alerta DATETIME NOT NULL,
     status_manutenção VARCHAR(20) NOT NULL,
-	CONSTRAINT chk_Gerador_alerta CHECK(status_Gerador_alerta IN('Acionado','Suspenso')),
-	CONSTRAINT chk_tipo_gravidade_alerta CHECK (gravidade_alert IN ('Baixa','Alta')),
+	CONSTRAINT chk_Gerador_alerta CHECK(statusGerador_alerta IN('Acionado','Suspenso')),
+	CONSTRAINT chk_tipo_gravidade_alerta CHECK (gravidade_alerta IN ('Baixa','Alta')),
 	CONSTRAINT chk_status_manutenção CHECK (status_manutenção IN ('Acionado', 'Resolvido'))
 );
 
@@ -79,20 +79,6 @@ INSERT INTO empresa VALUES
 	(default, 'Homocentro RP', '18317618000480', 'Rua Tasman', '09750-360', '1230118142', 'hemocentrorp@gmail.com.br', 'senha300', '2020-08-21', 'Levi Borner Bilé'),
     (default, 'Hospital Santa Tech', '23417618000481', 'Avenida Paulista', '06815-400', '1432168192', 'hopsst@.com.br', 'hosps127', '2022-09-08', 'José Antônio Figueiredo'),
 	(default, 'Accenture', '18317618000145', 'Alameda das Glicínias', '13342-021', '1727266666', 'eletronicos.marques@geradornv.com.br', 'senha123', '2018-06-01', 'Fellipe Tavares Annunziato');
-
-
--- SELECT NA TABELA EMPRESA USANDO 'AS'
-SELECT
-	id_empresa  AS 'Id Empresa',
-    nome AS 'Nome Empresa',
-    cnpj AS 'CNPJ',
-    endereco AS 'Endereço',
-    CEP AS 'CEP',
-    email AS 'E-mail',
-    senha AS 'Senha',
-    dt_cadastro AS 'Data Cadastro Empresa',
-    responsavel AS 'Responsável'
-FROM empresa;
 
 INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, permissao_usuario)  VALUES  
 ('Roger', 'rogerelias@gmail.com',' #elias1234', 'medico', 'Admin'),
@@ -106,11 +92,11 @@ INSERT INTO Doador (nome_doador, cpf_doador, tipo_sanguineo_doador, dt_nasciment
 ('Gabriel', '65434578911', 'B+', '1983-05-17', '16-989419836'),
 ('Giovanna', '47825697705', 'A+', '1990-06-08', '75-96564-8223');
 
-INSERT INTO Alerta(gravidade_alerta,Temperatura,status_Gerador_alerta,dt_hora_alerta,status_manutenção)VALUES
-('Alta','08', 'Suspenso', '2025-04-09', 'Resolvido'),
-('Baixa','01', 'Suspenso','2025-07-27', 'Resolvido'),
-('Alta', '18', 'Acionado', '2025-06-13','Resolvido'),
-('Alta','21', 'Acionado', '2025-09-04', 'Manutenção');
+INSERT INTO Alerta(id_arduino, gravidade_alerta,Temperatura,statusGerador_alerta,dt_hora_alerta,status_manutenção)VALUES
+(1,'Alta','08', 'Suspenso', '2025-04-09', 'Resolvido'),
+(2,'Baixa','01', 'Suspenso','2025-07-27', 'Resolvido'),
+(3,'Alta', '18', 'Acionado', '2025-06-13','Resolvido'),
+(4,'Alta','21', 'Acionado', '2025-09-04', 'Acionado');
 
 INSERT INTO Arduino (local_instalado_arduino, stats_arduino, id_empresa, temperatura_arduino, dt_hora_arduino) VALUES
 ('sala 01, segundo andar','Ativo', 2, 5,'2025-10-02'),
@@ -126,3 +112,16 @@ INSERT INTO Bolsa_Sangue(doador_bolsa, tipo_sanguineo_bolsa, validade_bolsa, dt_
 ('3', 'A-', '2026-04-20', '2025-10-15', 500, 'Vencida'),
 ('4', 'AB+', '2026-07-20', '2025-11-20', 200, 'Armazenada'),
 ('5', 'O-', '2026-06-20', '2025-09-25', 250, 'Transfundida');
+
+-- SELECT NA TABELA EMPRESA USANDO 'AS'
+SELECT
+	id_empresa  AS 'Id Empresa',
+    nome_empresa AS 'Nome Empresa',
+    cnpj_empresa AS 'CNPJ',
+    endereco_empresa AS 'Endereço',
+    CEP_empresa AS 'CEP',
+    email_empresa AS 'E-mail',
+    senha_empresa AS 'Senha',
+    dt_cadastro_empresa AS 'Data Cadastro Empresa',
+    responsavel_empresa AS 'Responsável'
+FROM empresa;
