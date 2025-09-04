@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - Bolsas de Sangue</title>
+</head>
+<body style="background-color: cornsilk;">
+    <img src="Ice.png" width="20%">
+    <h2>Simulador Financeiro - Preservação de Bolsas de Sangue</h2>
+    <p>Informe os dados abaixo para calcular a economia estimada utilizando o IceBlood:</p>
+    Total de bolsas armazenadas: <input id="iptTotalBolsas"><br>
+    Percentual de perda atual (%): <input id="ipt_perdaAtual"><br><br>
+
+    <button onclick="calcularEconomia()">Calcular Economia</button> <br><br>
+
+    <div id="div_msg"></div>
+
+    <script>
+        function calcularEconomia() {
+
+            var totalBolsas = Number(iptTotalBolsas.value);
+            var perdaAtual = Number(ipt_perdaAtual.value);
+
+
+            var reducaoSistema = 10;
+            var perdaNova = perdaAtual * (1 - reducaoSistema / 100);
+
+            var perdaMonetariaAtual = (totalBolsas * perdaAtual / 100) * 600;
+            var perdaMonetariaNova = (totalBolsas * perdaNova / 100) * 600;
+
+            var economia = perdaMonetariaAtual - perdaMonetariaNova;
+            var reduzir = (perdaAtual - perdaNova);
+            var conta = perdaAtual - reduzir;
+
+            div_msg.innerHTML = `Com nosso sistema, a perda pode cair de: ${perdaAtual}% para ${conta.toFixed(1)}%, gerando uma economia de ${economia.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
