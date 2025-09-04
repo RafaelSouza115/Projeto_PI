@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Simulador de Economia</title>
+</head>
+
+<body>
+    <img src="ICEBLOOD LOGO.png" alt="logo da empresa." width="250" height="200">
+    <h2>Simulador de Economia com Sensor</h2>
+    <p>As bolsas de sangue são muito importantes. Elas precisam ser armazenadas de <b>2°C a 8°C</b>.<br>  Quando não estão na
+        temperatura correta, podem ser perdidas,gerando alto custo para os hemocentros.<br>
+         Nosso sensor ajuda a reduzir
+        essas perdas e a economizar dinheiro.</p> 
+        
+        Quantas bolsas você perde por ano? 
+        <input id="perda" type="text"><br><br> 
+
+        Tipo de bolsa (hemacia, plaqueta, plasma ou sangue): 
+        <input id="tipo" type="text"><br><br>
+
+        Redução (%) estimada com o sensor: 
+        <input id="reducao" type="text"><br><br>
+
+    <button onclick="calcular()">Calcular Economia</button>
+
+    <div id="resultado"></div>
+
+</body>
+
+<script> function calcular() { 
+
+var bolsasPerdidasAno = Number(perda.value); 
+var tipoBolsa = tipo.value; 
+var reducPercent = Number(reducao.value); 
+
+// valor fixo do sensor 
+var custoSensor = 550; 
+
+// preço por bolsa
+var precoPorBolsa; 
+if (tipoBolsa == "hemacia") { 
+    precoPorBolsa = 441; 
+
+} else { 
+    if (tipoBolsa == "plaqueta") {
+         precoPorBolsa = 2000; 
+
+ } else { 
+    if (tipoBolsa == "plasma") {
+         precoPorBolsa = 600;       
+    } 
+    else { 
+        precoPorBolsa = 600; //valor padrão 
+}
+ }
+ }
+ //cálculos 
+ 
+ var perdaAtual = bolsasPerdidasAno * precoPorBolsa; 
+ var perdaNova = perdaAtual * (1 - (reducPercent / 100)); 
+ var economia = perdaAtual - perdaNova; 
+ // saída na div 
+ resultado.innerHTML = "<br> Perda atual: R$ " + perdaAtual.toFixed(2) + "<br>" + 
+ "Perda com sensor: R$ " + perdaNova.toFixed(2) + "<br>" + 
+ "Economia estimada: R$ " + economia.toFixed(2); } 
+</script>
+</html>
