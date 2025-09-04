@@ -127,17 +127,27 @@ VALUES
 
 -- SELECT NA TABELA EMPRESA USANDO 'AS'
 SELECT
-    id_empresa              AS 'Id Empresa',
-    nome_empresa            AS 'Nome da Empresa',
-    cnpj_empresa            AS 'CNPJ',
-    cep_empresa             AS 'CEP',
-    logradouro_empresa      AS 'Logradouro',
-    numero_empresa          AS 'Número',
-    bairro_empresa          AS 'Bairro',
-    cidade_empresa          AS 'Cidade',
-    estado_empresa          AS 'Estado',
-    ufEmpresa_empresa       AS 'UF',
-    dt_cadastro_empresa     AS 'Data de Cadastro',
+    id_empresa AS 'Id Empresa',
+    nome_empresa AS 'Nome da Empresa',
+    cnpj_empresa AS 'CNPJ',
+    cep_empresa AS 'CEP',
+    logradouro_empresa AS 'Logradouro',
+    numero_empresa  AS 'Número',
+    bairro_empresa AS 'Bairro',
+    cidade_empresa  AS 'Cidade',
+    estado_empresa AS 'Estado',
+    ufEmpresa_empresa AS 'UF',
+    dt_cadastro_empresa AS 'Data de Cadastro',
     nome_responsavel_empresa AS 'Nome do Responsável',
     email_responsavel_empresa AS 'E-mail do Responsável'
 FROM Empresa;
+
+/*
+Ketellyn Santos – 01252079
+Maria Eduarda Lima – 01252088
+Pablo Cordeiro - 01252114
+Rafael Souza Alcântara - 012520115
+Robson Guilherme do Ouro – 01252120
+Roger Elias Aparecido – 01252049
+Victor Guimarães Souza - 012520112
+*/
