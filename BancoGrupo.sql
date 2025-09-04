@@ -111,3 +111,10 @@ INSERT INTO Alerta(gravidade_alerta,Temperatura,status_Gerador_alerta,dt_hora_al
 ('Alta', '18', 'Acionado', '2025-06-13','Resolvido'),
 ('Alta','21', 'Acionado', '2025-09-04', 'Manutenção');
 
+insert into Arduino (local_instalado, stats, id_empresa, temperatura,dt_hora) values
+('sala 01, segundo andar','Ativo', 2, 5,'2025-10-02'),
+('sala 113, setimo andar','Manutenção', 2, 6,'2024-03-23'),
+('sala marte','Inativo', 10, 4,'2023-04-17'),
+('sala venus','Manutenção', 10, 3,'2025-04-16'),
+('sala Paulista','Ativo', 7, 4,'2024-07-18'),
+('sala Masp','Inativo', 7, 7,'2025-08-15');
