@@ -5,16 +5,17 @@ CREATE TABLE Empresa (
     id_empresa INT AUTO_INCREMENT PRIMARY KEY,
     nome_empresa VARCHAR(150) NOT NULL,
     cnpj_empresa CHAR(14) NOT NULL,
-    cep_empresa VARCHAR(15),
-	logradouro_empresa VARCHAR(50),
-	numero_empresa VARCHAR(20),
-	bairro_empresa VARCHAR(30),
-	cidade_empresa VARCHAR(50),
-	estado_empresa VARCHAR(20),
-	ufEmpresa_empresa CHAR(2),
+    cep_empresa VARCHAR(15) NOT NULL,
+	logradouro_empresa VARCHAR(50) NOT NULL,
+	numero_empresa VARCHAR(20)NULL,
+	bairro_empresa VARCHAR(30)NULL,
+	cidade_empresa VARCHAR(50)NOT NULL,
+	estado_empresa VARCHAR(20)NOT NULL,
+	ufEmpresa_empresa CHAR(2)NOT NULL,
     dt_cadastro_empresa DATETIME,
-    responsavel_empresa VARCHAR(30),
-	CONSTRAINT chk_email_empresa CHECK (email_empresa LIKE '%@%')
+    nome_responsavel_empresa VARCHAR(30)NOT NULL,
+	email_responsavel_empresa VARCHAR(30)NOT NULL,
+	CONSTRAINT chk_email_responsavel_empresa CHECK (email_email_responsavel_empresa LIKE '%@%')
 );
 
 CREATE TABLE Usuario (
@@ -31,7 +32,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Arduino (
     id_arduino INT AUTO_INCREMENT PRIMARY KEY,
 	id_empresa varchar (20) NOT NULL,
-    local_instalado_arduino VARCHAR(100) NOT NULL,
+    camara_instalacao_arduino VARCHAR(100) NOT NULL,
     stats_arduino VARCHAR(20) NOT NULL,
     temperatura_arduino DECIMAL(5,2) NOT NULL,
     dt_hora_arduino DATETIME NOT NULL,
@@ -44,13 +45,13 @@ CREATE TABLE Doador (
     cpf_doador CHAR(11) UNIQUE NOT NULL,
     tipo_sanguineo_doador CHAR(3) NOT NULL,
     dt_nascimento_doador DATE NOT NULL,
-    contato_doador VARCHAR(15) NOT NULL,
+    telefone_doador VARCHAR(15) NOT NULL,
+	responsavel_telefone_doador VARCHAR(15) NULL,
     CONSTRAINT chk_tipo_sanguineo_doador CHECK (tipo_sanguineo_doador IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'))
 );
 
 CREATE TABLE Bolsa_Sangue (
-    id_bolsa INT AUTO_INCREMENT PRIMARY KEY,
-    doador_bolsa VARCHAR(50), 
+    id_bolsa INT AUTO_INCREMENT PRIMARY KEY, 
     tipo_sanguineo_bolsa CHAR(3) NOT NULL,
     validade_bolsa DATE NOT NULL,
     dt_doacao_bolsa DATETIME,
@@ -63,12 +64,9 @@ CREATE TABLE Bolsa_Sangue (
 CREATE TABLE Alerta (
     id_alerta INT AUTO_INCREMENT PRIMARY KEY,
     id_arduino INT NOT NULL, 
-	Temperatura DECIMAL(2.0),
-    statusGerador_alerta VARCHAR (30),
     gravidade_alerta VARCHAR (30),
     dt_hora_alerta DATETIME NOT NULL,
     status_manutenção VARCHAR(20) NOT NULL,
-	CONSTRAINT chk_Gerador_alerta CHECK(statusGerador_alerta IN('Acionado','Suspenso')),
 	CONSTRAINT chk_tipo_gravidade_alerta CHECK (gravidade_alerta IN ('Baixa','Alta')),
 	CONSTRAINT chk_status_manutenção CHECK (status_manutenção IN ('Acionado', 'Resolvido'))
 );
