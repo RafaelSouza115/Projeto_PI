@@ -93,3 +93,9 @@ SELECT
     dt_cadastro AS 'Data Cadastro Empresa',
     responsavel AS 'Responsável'
 FROM empresa;
+
+INSERT INTO Usuario (nome_usuario, email_usuario, senha_usuario, cargo_usuario, permissao_usuario)  VALUES  
+('Roger', 'rogerelias@gmail.com',' #elias1234', 'medico', 'Admin'),
+('Victor', 'victorgui@gmail.com','#guimaraes', 'Enfermeiro', 'Visualizador'),
+('Maria', 'maria157s@gmail.com','ma2234', 'Medica', 'Operador'),
+('Robson', 'robson177@gmail.com','robb@', 'Medico', 'Admin'); 
