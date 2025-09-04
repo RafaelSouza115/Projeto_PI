@@ -60,15 +60,14 @@ CREATE TABLE Bolsa_Sangue (
 CREATE TABLE Alerta (
     id_alerta INT AUTO_INCREMENT PRIMARY KEY,
     id_arduino INT NOT NULL, 
-    tipo_alerta VARCHAR(30) NOT NULL,
+	Temperatura DECIMAL(2.0),
     statusGerador_alerta VARCHAR (30),
     gravidadeAlerta_alerta VARCHAR (30),
     dt_hora_alerta DATETIME NOT NULL,
-    status_alerta VARCHAR(20) NOT NULL
-	CONSTRAINT chk_stats_alerta CHECK (status_alerta IN ('Manunencao', 'Resolvido')),
-	CONSTRAINT chk_tipo_alerta CHECK (tipo_alerta IN ('Alta temperatura', 'Baixa temperatura', 'Falha sensor')),
-	CONSTRAINT chk_tipo_gravidade_alerta CHECK (gravidade_alerta IN ('Baixa', 'Media', 'Alta')),
-    CONSTRAINT chk_Gerador_alerta CHECK(status_Gerador_alerta IN('Acionado','Suspenso'))
+    status_manutenção VARCHAR(20) NOT NULL,
+	CONSTRAINT chk_Gerador_alerta CHECK(status_Gerador_alerta IN('Acionado','Suspenso')),
+	CONSTRAINT chk_tipo_gravidade_alerta CHECK (gravidade_alert IN ('Baixa','Alta')),
+	CONSTRAINT chk_status_manutenção CHECK (status_manutenção IN ('Acionado', 'Resolvido'))
 );
 
 
@@ -105,3 +104,10 @@ INSERT INTO Doador (nome_doador, cpf_doador, tipo_sanguineo_doador, dt_nasciment
 ('Alexandre', '12765933604', 'A+', '1994-03-01', '21-964785612'),
 ('Gabriel', '65434578911', 'B+', '1983-05-17', '16-989419836'),
 ('Giovanna', '47825697705', 'A+', '1990-06-08', '75-96564-8223');
+
+INSERT INTO Alerta(gravidade_alerta,Temperatura,status_Gerador_alerta,dt_hora_alerta,status_manutenção)VALUES
+('Alta','08', 'Suspenso', '2025-04-09', 'Resolvido'),
+('Baixa','01', 'Suspenso','2025-07-27', 'Resolvido'),
+('Alta', '18', 'Acionado', '2025-06-13','Resolvido'),
+('Alta','21', 'Acionado', '2025-09-04', 'Manutenção');
+
