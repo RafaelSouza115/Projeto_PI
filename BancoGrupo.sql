@@ -39,16 +39,22 @@ CREATE TABLE Arduino (
     CONSTRAINT chk_stats_arduino_arduino CHECK (stats_arduino IN ('Ativo', 'Inativo', 'Manutenção'))
 );
 
-CREATE TABLE Doador (
+/*CREATE TABLE Doador (
     id_doador INT AUTO_INCREMENT PRIMARY KEY,
+    idade_doador INT NOT NULL,
+    genero_doador Varchar(15),
+    dt_doacao DATE NOT NULL,
     nome_doador VARCHAR(100) NOT NULL,
     cpf_doador CHAR(11) UNIQUE NOT NULL,
     tipo_sanguineo_doador CHAR(3) NOT NULL,
     dt_nascimento_doador DATE NOT NULL,
     telefone_doador VARCHAR(15) NOT NULL,
 	responsavel_telefone_doador VARCHAR(15) NULL,
-    CONSTRAINT chk_tipo_sanguineo_doador CHECK (tipo_sanguineo_doador IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'))
+    CONSTRAINT chk_tipo_sanguineo_doador CHECK (tipo_sanguineo_doador IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')),
+    CONSTRAINT chk_genero_doador CHECK(genero_doador IN ('Masculino', 'Feminino'))
 );
+*/
+
 
 CREATE TABLE Bolsa_Sangue (
     id_bolsa INT AUTO_INCREMENT PRIMARY KEY, 
@@ -141,6 +147,36 @@ SELECT
     nome_responsavel_empresa AS 'Nome do Responsável',
     email_responsavel_empresa AS 'E-mail do Responsável'
 FROM Empresa;
+
+CREATE TABLE Doador (
+    id_doador INT AUTO_INCREMENT PRIMARY KEY,
+    idade_doador INT NOT NULL,
+    genero_doador Varchar(15),
+    dt_doacao DATE NOT NULL,
+    nome_doador VARCHAR(100) NOT NULL,
+    cpf_doador CHAR(11) UNIQUE NOT NULL,
+    tipo_sanguineo_doador CHAR(3) NOT NULL,
+    dt_nascimento_doador DATE NOT NULL,
+    telefone_doador VARCHAR(15) NOT NULL,
+	responsavel_telefone_doador VARCHAR(15) NULL,
+    CONSTRAINT chk_tipo_sanguineo_doador CHECK (tipo_sanguineo_doador IN ('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-')),
+    CONSTRAINT chk_genero_doador CHECK(genero_doador IN ('Masculino', 'Feminino'))
+);
+
+INSERT INTO Doador (idade_doador, genero_doador, dt_doacao, nome_doador, cpf_doador, tipo_sanguineo_doador, dt_nascimento_doador, telefone_doador, responsavel_telefone_doador)
+VALUES
+(25, 'Masculino', '2025-01-10', 'João Silva', '12345678901', 'O+', '2000-05-10', '11999998888', NULL),
+(30, 'Feminino', '2025-02-15', 'Maria Oliveira', '23456789012', 'A-', '1995-08-22', '11988887777', '11955556666'),
+(40, 'Masculino', '2025-03-20', 'Carlos Souza', '34567890123', 'B+', '1985-03-15', '11977776666', NULL),
+(36, 'Feminino', '2025-04-05', 'Ana Santos', '45678901234', 'AB-', '1997-11-02', '11966665555', NULL),
+(35, 'Masculino', '2025-05-18', 'Pedro Lima', '56789012345', 'A+', '1990-09-09', '11955554444', NULL),
+(42, 'Feminino', '2025-06-25', 'Juliana Costa', '67890123456', 'O-', '2003-01-19', '11944443333', NULL);
+
+SELECT idade_doador, dt_doacao, genero_doador
+FROM Doador
+WHERE genero_doador ='feminino'
+ORDER BY idade_doador ASC;
+
 
 /*
 Ketellyn Santos – 01252079
