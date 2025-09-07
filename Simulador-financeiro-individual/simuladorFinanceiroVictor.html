@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -10,11 +10,8 @@
 <body>
     <img src="imagem/ICEBLOOD LOGO.png" width="300" alt="Icone IceBlood">
     <h2> Calculadora Financeira: Economia no seu armazenamento de sangue</h2>
-    <p>Descubra quanto o seu hospital pode economizar no estoque de sangue, reduzindo perdas de bolsas e transformando
+    <p>Descubra quanto o seu hospital ou hemocentro pode economizar no estoque de sangue, reduzindo perdas de bolsas e transformando
         desperdício em economia com nosso sistema de controle de temperatura.</p>
-    <br><br>
-    O hospital é público ou privado:
-    <input type="text" id="tipoHospital">
     <br><br>
     Quantidade de bolsas de sangue no seu estoque:
     <input type="text" id="bolsaEstoque">
@@ -27,37 +24,27 @@
     <div id="divMsg"></div>
 </body>
 <script>
-
+    var valorUnitario = 585;
     function calcular() {
-
-        var ax_tipoHospital = tipoHospital.value;
+        
         var ax_bolsaEstoque = Number(bolsaEstoque.value);
         var ax_bolsasPerdidas = Number(bolsasPerdidas.value);
-
-        if (ax_tipoHospital == 'Publico') {
-            var valorBolsaEstoque = ax_bolsaEstoque * 585;
-            var valorBolsasPerdidas = ax_bolsasPerdidas * 585;
-            var valorUnitario = 585;
-            ax_tipoHospital = 'Publico';
-        } else {
-            var valorBolsaEstoque = ax_bolsaEstoque * 1000;
-            var valorBolsasPerdidas = ax_bolsasPerdidas * 1000;
-            var valorUnitario = 1000;
-            ax_tipoHospital = 'Privado';
-        }
+        var valorBolsasEstoque = ax_bolsaEstoque * 585
+        var valorBolsasPerdida = ax_bolsasPerdidas * 585
+        
 
         var perdaBolsa = (ax_bolsasPerdidas / ax_bolsaEstoque) * 100;
         var porcentualReducao = 50;
-        var valorEconomia = valorBolsasPerdidas * (porcentualReducao / 100);
+        var valorEconomia = valorBolsasPerdida * (porcentualReducao / 100);
 
 
         divMsg.innerHTML = `
      Você informou que possui <b>${ax_bolsaEstoque}</b> bolsas em estoque, das quais <b style = "color: red;">${ax_bolsasPerdidas}</b> 
      foram perdidas (${perdaBolsa.toFixed(2)}% do total).<br><br>
  
-     No hospital <b>${ax_tipoHospital}</b>, cada bolsa custa <b>R$ ${valorUnitario}</b>. 
-     Assim, o valor total do seu estoque é de <b>R$ ${valorBolsaEstoque.toFixed(2)}</b> e o valor perdido foi de 
-     <b style = "color: red;">R$ ${valorBolsasPerdidas.toFixed(2)}</b>.<br><br>
+      Uma bolsa de sangue de 450 ml custa <b>R$ ${valorUnitario}</b>. 
+     Assim, o valor total do seu estoque é de <b>R$ ${valorBolsasEstoque.toFixed(2)}</b> e o valor perdido foi de 
+     <b style = "color: red;">R$ ${valorBolsasPerdida.toFixed(2)}</b>.<br><br>
  
      Com o nosso sistema de controle de temperatura, você poderá reduzir suas perdas, 
      transformando desperdício em <b>economia de até</b> <b style = "color: green;">R$ ${valorEconomia.toFixed(2)}.</b> `;
