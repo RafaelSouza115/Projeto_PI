@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="IMG/ICEBLOOD LOGO.png" width="400" alt="logo empresa">
+    <img src="ICEBLOOD LOGO.png" width="300" alt="logo empresa">
     <div>
+    <br> 
+    <h2>Calculadora Financeira</h2>
     <b>Digite a quantidade de bolsas que você precisará armazenar:</b><br><input id="id_quantidade"><br><br>
 
     <button onclick="publico()">Hospital Publico</button>
@@ -37,14 +39,14 @@
     var quantidadeEconomia = quantidadeAnoSem - quantidadeAnoCom;
 
         
-div_msg.innerHTML = 'HOSPITAL PÚBLICO: <div><br>'+'Sem o nosso sistema você perderia <u><i style="color: red;"> 20% </i></u> dessa quantidade. Uma quantidade de <u><i style="color: red;">'
+div_msg.innerHTML = '<br>HOSPITAL PÚBLICO: <div><br>'+'Sem o nosso sistema você perderia <u><i style="color: red;"> 20% </i></u> dessa quantidade. Uma quantidade de <u><i style="color: red;">'
 + quantidadeSem + '</i></u> bolsas perdidas. <br> Onde seu prejuizo seria de <u><i style="color: red;">R$' + valorSem.toFixed(2) 
 + '</i></u>. Sendo um prejuizo anual de, <u><i style="color: red;">R$' + valorAnoSem.toFixed(2)+ '</i></u>. <br><br> '
 + ' Utilizando nosso sistema, passaria para apenas <u><i style="color: blue;">10%</i></u>, da sua quantidade, sendo somente <u><i style="color: blue;">'
 + quantidadeCom + '</i></u> bolsas perdidas. <br> Com um prejuizo reduzido para <u><i style="color: blue;">R$'
 + valorCom.toFixed(2) + '</i></u>. Sendo um prejuizo anual de somente <u><i style="color: blue;">R$' + valorAnoCom.toFixed(2)
-+ '</i></u>.<br><br> Totalizando uma economia anual de <i><b><u>R$' + valorEconomia.toFixed(2) + '</b></i></u> . E uma quantidade de <i><b><u>'
-+ quantidadeEconomia + '</b></i></u> bolsas que não foram perdidas!! <br><br> <u><i style="color: red;">OBS:</i></u> <br> <b> Não calcularemos seu custo operacional.<br>Como seu local de armazenamento e outros custos operacionais fora o nosso sistema)</b>';
++ '</i></u>.<br><br> Totalizando uma economia anual de <i><b><u>R$' + valorEconomia.toFixed(2) + '</b></i></u> . e evitando a perda de <i><b><u>'
++ quantidadeEconomia + '</b></i></u> bolsa de sangue no ano. <br><br> <i style="color: red;">OBS:</i>  <b> Não calcularemos seu custo operacional.<br>Como seu local de armazenamento e outros custos operacionais fora o nosso sistema</b>';
 
     }
 </script>
